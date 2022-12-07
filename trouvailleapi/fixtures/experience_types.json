@@ -1,0 +1,37 @@
+[
+    {
+        "model": "trouvailleapi.experiencetype",
+        "pk": 1,
+        "fields": {
+            "name": "Activity"
+        }
+    },
+    {
+        "model": "trouvailleapi.experiencetype",
+        "pk": 2,
+        "fields": {
+            "name": "Accommodation"
+        }
+    },
+    {
+        "model": "trouvailleapi.experiencetype",
+        "pk": 3,
+        "fields": {
+            "name": "Attraction"
+        }
+    },
+    {
+        "model": "trouvailleapi.experiencetype",
+        "pk": 4,
+        "fields": {
+            "name": "Eatery"
+        }
+    },
+    {
+        "model": "trouvailleapi.experiencetype",
+        "pk": 5,
+        "fields": {
+            "name": "Pub"
+        }
+    }
+]
