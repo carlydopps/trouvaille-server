@@ -1,0 +1,18 @@
+[
+    {
+        "model": "trouvailleapi.tripdestination",
+        "pk": 1,
+        "fields": {
+            "trip": 1,
+            "destination": 2
+        }
+    },
+    {
+        "model": "trouvailleapi.tripdestination",
+        "pk": 2,
+        "fields": {
+            "trip": 2,
+            "destination": 1
+        }
+    }
+]

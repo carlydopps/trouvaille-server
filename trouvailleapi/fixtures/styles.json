@@ -1,0 +1,23 @@
+[
+    {
+        "model": "trouvailleapi.style",
+        "pk": 1,
+        "fields": {
+            "name": "Culture"
+        }
+    },
+    {
+        "model": "trouvailleapi.style",
+        "pk": 2,
+        "fields": {
+            "name": "Adventure"
+        }
+    },
+    {
+        "model": "trouvailleapi.style",
+        "pk": 3,
+        "fields": {
+            "name": "Escape"
+        }
+    }
+]

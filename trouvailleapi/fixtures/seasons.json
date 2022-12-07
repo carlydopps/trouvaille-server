@@ -1,0 +1,30 @@
+[
+    {
+        "model": "trouvailleapi.season",
+        "pk": 1,
+        "fields": {
+            "name": "Spring"
+        }
+    },
+    {
+        "model": "trouvailleapi.season",
+        "pk": 2,
+        "fields": {
+            "name": "Summer"
+        }
+    },
+    {
+        "model": "trouvailleapi.season",
+        "pk": 3,
+        "fields": {
+            "name": "Fall"
+        }
+    },
+    {
+        "model": "trouvailleapi.season",
+        "pk": 4,
+        "fields": {
+            "name": "Winter"
+        }
+    }
+]

@@ -1,0 +1,47 @@
+[
+    {
+        "model": "trouvailleapi.destination",
+        "pk": 1,
+        "fields": {
+            "city": "Leavenworth",
+            "state": "Washington",
+            "country": "US"
+        }
+    },
+    {
+        "model": "trouvailleapi.destination",
+        "pk": 2,
+        "fields": {
+            "city": "Stowe",
+            "state": "Vermont",
+            "country": "US"
+        }
+    },
+    {
+        "model": "trouvailleapi.destination",
+        "pk": 3,
+        "fields": {
+            "city": "Park City",
+            "state": "Utah",
+            "country": "US"
+        }
+    },
+    {
+        "model": "trouvailleapi.destination",
+        "pk": 4,
+        "fields": {
+            "city": "Glen Arbor",
+            "state": "Michigan",
+            "country": "US"
+        }
+    },
+    {
+        "model": "trouvailleapi.destination",
+        "pk": 5,
+        "fields": {
+            "city": "Boulder",
+            "state": "Colorado",
+            "country": "US"
+        }
+    }
+]

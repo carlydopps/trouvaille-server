@@ -1,0 +1,42 @@
+[
+    {
+        "model": "trouvailleapi.experience",
+        "pk": 1,
+        "fields": {
+            "title": "Thousand Trails Leavenworth Campground",
+            "address": "20752 Chiwawa Loop Road, Leavenworth, WA 98826",
+            "website_url": "https://www.thousandtrails.com/washington/leavenworth-rv-campground/",
+            "experience_type": 2
+        }
+    },
+    {
+        "model": "trouvailleapi.experience",
+        "pk": 2,
+        "fields": {
+            "title": "Idletyme Brewery",
+            "address": "1859 Mountain Rd, Stowe, VT 05672",
+            "website_url": "https://idletymebrewing.com/",
+            "experience_type": 5
+        }
+    },
+    {
+        "model": "trouvailleapi.experience",
+        "pk": 3,
+        "fields": {
+            "title": "Eldora Mountain Ski Resort",
+            "address": "2861 Eldora Ski Road #140 Nederland, CO 80466",
+            "website_url": "https://www.eldora.com/",
+            "experience_type": 1
+        }
+    },
+    {
+        "model": "trouvailleapi.experience",
+        "pk": 4,
+        "fields": {
+            "title": "Cold Hollow Cider Mill",
+            "address": "3600 Waterbury-Stowe Rd, Waterbury Center, VT 05677",
+            "website_url": "https://coldhollow.com/",
+            "experience_type": 4
+        }
+    }
+]

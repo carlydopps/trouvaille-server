@@ -1,0 +1,26 @@
+[
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 1,
+        "fields": {
+            "trip": 1,
+            "experience": 2
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 2,
+        "fields": {
+            "trip": 1,
+            "experience": 4
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 3,
+        "fields": {
+            "trip": 2,
+            "experience": 1
+        }
+    }
+]

@@ -1,0 +1,35 @@
+[
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "first_name": "Ryan",
+            "last_name": "Dopps",
+            "email": "ryandopps@gmail.com",
+            "username": "ryandopps",
+            "password": "pbkdf2_sha256$390000$8ZjgvbOj5ha2dzS4aXdr9n$2SVcDFKbrGQgnpw68VoXrtWabVWaBzcm3r0rY7Gl7fo="
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 2,
+        "fields": {
+            "first_name": "Hayden",
+            "last_name": "Low",
+            "email": "haydenlow@gmail.com",
+            "username": "haydenlow",
+            "password": "pbkdf2_sha256$390000$tynMEzMLKKpBinkk7w9Bl4$Q73xrGptwq0QLtSsuq+yhqfark9sPewYIe2NHqVHz6g="
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 3,
+        "fields": {
+            "first_name": "Calla",
+            "last_name": "Niebs",
+            "email": "callaniebs@gmail.com",
+            "username": "callaniebs",
+            "password": "pbkdf2_sha256$390000$YiUBanUcIWlSajYI07MT18$hOfdf15laGacWJnJ+TZLUW5oJKiNDtUHAbkiq7AxkqY="
+        }
+    }
+]
