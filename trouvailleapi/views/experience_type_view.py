@@ -33,7 +33,7 @@ class ExperienceTypeView(ViewSet):
         return Response(serializer.data)
 
 class ExperienceTypeSerializer(serializers.ModelSerializer):
-    """JSON serializer for experiences"""
+    """JSON serializer for experience types"""
     
     class Meta:
         model = ExperienceType

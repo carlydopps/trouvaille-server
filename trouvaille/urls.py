@@ -17,12 +17,17 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
 from rest_framework import routers
-from trouvailleapi.views import register_user, login_user, ExperienceView, ExperienceTypeView, DestinationView
+from trouvailleapi.views import register_user, login_user, ExperienceView, ExperienceTypeView, DestinationView, DurationView, SeasonView, StyleView, TravelerView
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'experiences', ExperienceView, 'experience')
 router.register(r'experienceTypes', ExperienceTypeView,'experienceTypes')
 router.register(r'destinations', DestinationView,'destination')
+router.register(r'durations', DurationView,'duration')
+router.register(r'seasons', SeasonView,'season')
+router.register(r'styles', StyleView,'style')
+router.register(r'travelers', TravelerView,'traveler')
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
