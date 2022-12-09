@@ -6,3 +6,4 @@ from .duration_view import DurationView
 from .season_view import SeasonView
 from .style_view import StyleView
 from .traveler_view import TravelerView
+from .trip_view import TripView
