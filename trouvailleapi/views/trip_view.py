@@ -2,6 +2,7 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
+from datetime import datetime
 from trouvailleapi.models import Trip, Traveler, Style, Season, Duration, Experience, Destination
 
 class TripView(ViewSet):
@@ -71,7 +72,7 @@ class TripView(ViewSet):
         trip.is_draft = request.data["isDraft"]
         trip.is_upcoming = request.data["isUpcoming"]
         trip.is_private = request.data["isPrivate"]
-        trip.modified_date = request.data["modifiedDate"]
+        trip.modified_date = datetime.today()
 
         traveler = Traveler.objects.get(pk=request.data["travelerId"])
         style = Style.objects.get(pk=request.data["styleId"])
