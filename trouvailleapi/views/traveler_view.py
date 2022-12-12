@@ -14,7 +14,11 @@ class TravelerView(ViewSet):
             Response -- JSON serialized traveler
         """
         try:
-            traveler = Traveler.objects.get(pk=pk)
+            if pk == 'auth':
+                traveler = Traveler.objects.get(user=request.auth.user)
+            else:
+                traveler = Traveler.objects.get(pk=pk)
+                
             serializer = TravelerSerializer(traveler)
             return Response(serializer.data, status=status.HTTP_200_OK)
         except:
