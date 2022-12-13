@@ -17,17 +17,19 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
 from rest_framework import routers
-from trouvailleapi.views import register_user, login_user, ExperienceView, ExperienceTypeView, DestinationView, DurationView, SeasonView, StyleView, TravelerView, TripView
+from trouvailleapi.views import register_user, login_user, ExperienceView, ExperienceTypeView, DestinationView, DurationView, SeasonView, StyleView, TravelerView, TripView, TripDestinationView, TripExperienceView
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'experiences', ExperienceView, 'experience')
-router.register(r'experienceTypes', ExperienceTypeView,'experienceTypes')
+router.register(r'experience_types', ExperienceTypeView,'experience_types')
 router.register(r'destinations', DestinationView,'destination')
 router.register(r'durations', DurationView,'duration')
 router.register(r'seasons', SeasonView,'season')
 router.register(r'styles', StyleView,'style')
 router.register(r'travelers', TravelerView,'traveler')
 router.register(r'trips', TripView,'trip')
+router.register(r'trip_destinations', TripDestinationView,'trip_destination')
+router.register(r'trip_experiences', TripExperienceView,'trip_experience')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
