@@ -3,7 +3,7 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
 from datetime import datetime
-from trouvailleapi.models import Trip, Traveler, Style, Season, Duration, Experience, Destination
+from trouvailleapi.models import Trip, Traveler, Style, Season, Duration, Experience, Destination, ExperienceType
 
 class TripView(ViewSet):
     """Viewset for trips"""
@@ -34,12 +34,12 @@ class TripView(ViewSet):
         return Response(serializer.data)
 
     def create(self, request):
-        """Handle POST operations for an trip
+        """Handle POST operations for a trip
 
         Returns
             Response -- JSON serialized trip instance
         """
-        traveler = Traveler.objects.get(pk=request.data["travelerId"])
+        traveler = Traveler.objects.get(user=request.auth.user)
         style = Style.objects.get(pk=request.data["styleId"])
         season = Season.objects.get(pk=request.data["seasonId"])
         duration = Duration.objects.get(pk=request.data["durationId"])
@@ -47,10 +47,10 @@ class TripView(ViewSet):
         trip = Trip.objects.create(
             title = request.data["title"],
             summary = request.data["summary"],
-            is_draft = request.data["isDraft"],
+            is_draft = request.data['isDraft'],
             is_upcoming = request.data["isUpcoming"],
             is_private = request.data["isPrivate"],
-            modified_date = request.data["modifiedDate"],
+            modified_date = datetime.today(),
             traveler = traveler,
             style = style,
             season = season,
@@ -60,7 +60,7 @@ class TripView(ViewSet):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
     def update(self, request, pk):
-        """Handle PUT requests for an trip
+        """Handle PUT requests for a trip
 
         Returns:
             Response -- Empty body with 204 status code
@@ -74,7 +74,7 @@ class TripView(ViewSet):
         trip.is_private = request.data["isPrivate"]
         trip.modified_date = datetime.today()
 
-        traveler = Traveler.objects.get(pk=request.data["travelerId"])
+        traveler = Traveler.objects.get(user=request.auth.user)
         style = Style.objects.get(pk=request.data["styleId"])
         season = Season.objects.get(pk=request.data["seasonId"])
         duration = Duration.objects.get(pk=request.data["durationId"])
@@ -120,8 +120,17 @@ class DurationSerializer(serializers.ModelSerializer):
         model = Duration
         fields = ('id', 'extent')
 
+class ExperienceTypeSerializer(serializers.ModelSerializer):
+    """JSON serializer for experience type of trip experience"""
+    
+    class Meta:
+        model = ExperienceType
+        fields = ('id', 'name')
+
 class ExperienceSerializer(serializers.ModelSerializer):
     """JSON serializer for trip duration"""
+
+    experience_type = ExperienceTypeSerializer(many=False)
 
     class Meta:
         model = Experience
