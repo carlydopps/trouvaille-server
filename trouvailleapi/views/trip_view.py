@@ -28,8 +28,13 @@ class TripView(ViewSet):
         Returns:
             Response -- JSON serialized list of trips
         """
-
         trips = Trip.objects.all()
+
+        if 'status' in request.query_params:
+            if request.query_params["status"] == "created":
+                traveler = Traveler.objects.get(user=request.auth.user)
+                trips = trips.filter(traveler = traveler)
+
         serializer = TripSerializer(trips, many=True)
         return Response(serializer.data)
 
