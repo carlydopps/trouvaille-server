@@ -2,7 +2,9 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
+from django.utils import timezone
 from datetime import datetime
+from rest_framework.decorators import action
 from trouvailleapi.models import Trip, Traveler, Style, Season, Duration, Experience, Destination, ExperienceType
 
 class TripView(ViewSet):
@@ -55,7 +57,7 @@ class TripView(ViewSet):
             is_draft = request.data['isDraft'],
             is_upcoming = request.data["isUpcoming"],
             is_private = request.data["isPrivate"],
-            modified_date = datetime.today(),
+            modified_date = timezone.now(),
             traveler = traveler,
             style = style,
             season = season,
@@ -77,7 +79,7 @@ class TripView(ViewSet):
         trip.is_draft = request.data["isDraft"]
         trip.is_upcoming = request.data["isUpcoming"]
         trip.is_private = request.data["isPrivate"]
-        trip.modified_date = datetime.today()
+        trip.modified_date = timezone.now()
 
         traveler = Traveler.objects.get(user=request.auth.user)
         style = Style.objects.get(pk=request.data["styleId"])
@@ -96,6 +98,24 @@ class TripView(ViewSet):
         trip = Trip.objects.get(pk=pk)
         trip.delete()
         return Response(None, status=status.HTTP_204_NO_CONTENT)
+    
+    @action(methods=['delete'], detail=True)
+    def remove_destination(self, request, pk):
+        """Delete request for an destination to be removed from a trip"""
+    
+        destination = Destination.objects.get(pk=request.query_params["destination"])
+        trip = Trip.objects.get(pk=pk)
+        trip.destinations.remove(destination)
+        return Response({'message': 'Destination removed'}, status=status.HTTP_204_NO_CONTENT)
+
+    @action(methods=['delete'], detail=True)
+    def remove_experience(self, request, pk):
+        """Delete request for an experience to be removed from a trip"""
+    
+        experience = Experience.objects.get(pk=request.query_params["experience"])
+        trip = Trip.objects.get(pk=pk)
+        trip.experiences.remove(experience)
+        return Response({'message': 'Experience removed'}, status=status.HTTP_204_NO_CONTENT)
         
 class TravelerSerializer(serializers.ModelSerializer):
     """JSON serializer for trip traveler"""

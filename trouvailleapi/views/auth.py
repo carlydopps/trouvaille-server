@@ -44,13 +44,13 @@ def register_user(request):
         username=request.data['username'],
         password=request.data['password'],
         email=request.data['email'],
-        first_name=request.data['firstName'],
-        last_name=request.data['lastName']
+        first_name=request.data['first_name'],
+        last_name=request.data['last_name']
     )
 
     traveler = Traveler.objects.create(
         bio=request.data['bio'],
-        profile_image_url=request.data['profileImg'],
+        profile_image_url=request.data['profile_image_url'],
         user=new_user,
     )
 
