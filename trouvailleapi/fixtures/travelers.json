@@ -3,7 +3,7 @@
         "model": "trouvailleapi.traveler",
         "pk": 1,
         "fields": {
-            "user_id": 1,
+            "user": 1,
             "bio": "Hello, my name is Ryan! I love to travel the country in my camper and have been on the road full time for the past two years.",
             "profile_image_url": "https://res.cloudinary.com/dupram4w7/image/upload/v1670273673/Trouvaille/IMG_5372_gqspc9.jpg"
         }
@@ -12,7 +12,7 @@
         "model": "trouvailleapi.traveler",
         "pk": 2,
         "fields": {
-            "user_id": 2,
+            "user": 2,
             "bio": "Hey! I'm Hayden. I moved to Colorado 5 years ago and haven't looked back since. I'm a raft guide in the summer, like to go backpacking in the spring and fall, and am usually skiing the local mountains all throughout the winter.",
             "profile_image_url": "https://res.cloudinary.com/dupram4w7/image/upload/v1670273528/Trouvaille/29249520_10155647669494888_5579882982077199245_n_lbgwgd.jpg"
         }
@@ -21,7 +21,7 @@
         "model": "trouvailleapi.traveler",
         "pk": 3,
         "fields": {
-            "user_id": 3,
+            "user": 3,
             "bio": "I'm Calla! I like to travel around the world - especially to beautiful cities and beaches.",
             "profile_image_url": "https://res.cloudinary.com/dupram4w7/image/upload/v1670274037/Trouvaille/IMG_7987_esfkqr.jpg"
         }
