@@ -3,9 +3,25 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
 from trouvailleapi.models import Experience, ExperienceType
+from rest_framework import permissions
+from rest_framework.decorators import api_view, permission_classes
+
+
+class ExperiencePermission(permissions.BasePermission):
+    """Custom permissions for experience view"""
+
+    def has_permission(self, request, view):
+        if view.action in ['list', 'retrieve']:
+            return True
+        elif view.action in ['create', 'update', 'destroy']:
+            return request.auth is not None
+        else:
+            return False
 
 class ExperienceView(ViewSet):
     """Viewset for experiences"""
+
+    permission_classes = [ExperiencePermission]
 
     def retrieve(self, request, pk):
         """Handle GET requests for single experience

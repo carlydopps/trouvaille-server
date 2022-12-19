@@ -6,9 +6,25 @@ from django.utils import timezone
 from datetime import datetime
 from rest_framework.decorators import action
 from trouvailleapi.models import Trip, Traveler, Style, Season, Duration, Experience, Destination, ExperienceType
+from rest_framework import permissions
+from rest_framework.decorators import api_view, permission_classes
+
+
+class TripPermission(permissions.BasePermission):
+    """Custom permissions for destination view"""
+
+    def has_permission(self, request, view):
+        if view.action in ['list']:
+            return True
+        elif view.action in ['retrieve', 'create', 'update', 'destroy']:
+            return request.auth is not None
+        else:
+            return False
 
 class TripView(ViewSet):
     """Viewset for trips"""
+
+    permission_classes = [TripPermission]
 
     def retrieve(self, request, pk):
         """Handle GET requests for single trip
@@ -16,6 +32,7 @@ class TripView(ViewSet):
         Returns:
             Response -- JSON serialized trip
         """
+
         try:
             trip = Trip.objects.get(pk=pk)
             serializer = TripSerializer(trip)

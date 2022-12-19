@@ -3,9 +3,25 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
 from trouvailleapi.models import Traveler
+from rest_framework import permissions
+from rest_framework.decorators import api_view, permission_classes
+
+
+class TravelerPermission(permissions.BasePermission):
+    """Custom permissions for traveler view"""
+
+    def has_permission(self, request, view):
+        if view.action in ['list']:
+            return True
+        elif view.action in ['retrieve', 'create', 'update', 'destroy']:
+            return request.auth is not None
+        else:
+            return False
 
 class TravelerView(ViewSet):
     """Viewset for travelers"""
+
+    permission_classes = [TravelerPermission]
 
     def retrieve(self, request, pk):
         """Handle GET requests for single traveler

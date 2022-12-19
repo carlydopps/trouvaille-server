@@ -3,9 +3,25 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
 from trouvailleapi.models import Destination
+from rest_framework import permissions
+from rest_framework.decorators import api_view, permission_classes
+
+
+class DestinationPermission(permissions.BasePermission):
+    """Custom permissions for destination view"""
+
+    def has_permission(self, request, view):
+        if view.action in ['list', 'retrieve']:
+            return True
+        elif view.action in ['create', 'update', 'destroy']:
+            return request.auth is not None
+        else:
+            return False
 
 class DestinationView(ViewSet):
     """Viewset for destinations"""
+
+    permission_classes = [DestinationPermission]
 
     def retrieve(self, request, pk):
         """Handle GET requests for single destination
