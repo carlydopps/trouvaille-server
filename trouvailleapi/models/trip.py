@@ -14,3 +14,11 @@ class Trip(models.Model):
     modified_date = models.DateTimeField()
     experiences = models.ManyToManyField('Experience', through='TripExperience')
     destinations = models.ManyToManyField('Destination', through='TripDestination') 
+
+    @property
+    def my_trip(self):
+        return self.__my_trip
+
+    @my_trip.setter
+    def my_trip(self, value):
+        self.__my_trip = value

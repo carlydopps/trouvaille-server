@@ -35,6 +35,11 @@ class TripView(ViewSet):
 
         try:
             trip = Trip.objects.get(pk=pk)
+            auth_user = Traveler.objects.get(user=request.auth.user)
+            if  trip.traveler.id == auth_user.id:
+                trip.my_trip = True
+            else:
+                trip.my_trip = False
             serializer = TripSerializer(trip)
             return Response(serializer.data, status=status.HTTP_200_OK)
         except:
@@ -197,4 +202,4 @@ class TripSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Trip
-        fields = ('id', 'title', 'summary', 'traveler', 'style', 'season', 'duration', 'is_draft', 'is_upcoming', 'is_private', 'modified_date', 'experiences', 'destinations')
+        fields = ('id', 'title', 'summary', 'traveler', 'style', 'season', 'duration', 'is_draft', 'is_upcoming', 'is_private', 'modified_date', 'experiences', 'destinations', 'my_trip')
