@@ -1,0 +1,26 @@
+[
+    {
+        "model": "trouvailleapi.favoritetrip",
+        "pk": 1,
+        "fields": {
+            "trip": 1,
+            "traveler": 2
+        }
+    },
+    {
+        "model": "trouvailleapi.favoritetrip",
+        "pk": 2,
+        "fields": {
+            "trip": 1,
+            "traveler": 3
+        }
+    },
+    {
+        "model": "trouvailleapi.favoritetrip",
+        "pk": 3,
+        "fields": {
+            "trip": 2,
+            "traveler": 2
+        }
+    }
+]
