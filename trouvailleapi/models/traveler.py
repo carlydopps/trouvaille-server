@@ -31,3 +31,9 @@ class Traveler(models.Model):
     @myself.setter
     def myself(self, value):
         self.__myself = value
+
+    @property
+    def follower_count(self):
+        followers = self.traveler_subscriptions.all()
+        total = len(followers)
+        return total
