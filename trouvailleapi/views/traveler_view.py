@@ -2,7 +2,7 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from trouvailleapi.models import Traveler, Subscription
+from trouvailleapi.models import Traveler, Subscription, Trip
 from rest_framework import permissions
 from rest_framework.decorators import api_view, permission_classes
 
@@ -103,10 +103,19 @@ class TravelerView(ViewSet):
 
         return Response(None, status=status.HTTP_204_NO_CONTENT)
 
+class TravelerTripsSerializer(serializers.ModelSerializer):
+    """JSON serializer for traveler trips """
+
+    class Meta:
+        model = Trip
+        fields = ('id', 'title', 'summary', 'style', 'season', 'duration', 'is_draft', 'is_upcoming', 'is_private', 'modified_date', 'experiences', 'destinations')
+        depth = 1
 
 class TravelerSerializer(serializers.ModelSerializer):
     """JSON serializer for travelers"""
+
+    traveled_trips = TravelerTripsSerializer(many=True)
     
     class Meta:
         model = Traveler
-        fields = ('id', 'full_name', 'username', 'bio', 'profile_image_url', 'subscribed', 'myself')
+        fields = ('id', 'full_name', 'username', 'bio', 'profile_image_url', 'subscribed', 'myself', 'follower_count', 'traveled_trips')
