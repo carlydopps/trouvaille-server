@@ -8,3 +8,4 @@ from .traveler import Traveler
 from .trip_destination import TripDestination
 from .trip_experience import TripExperience
 from .trip import Trip
+from .subscription import Subscription

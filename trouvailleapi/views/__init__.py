@@ -9,3 +9,4 @@ from .traveler_view import TravelerView
 from .trip_view import TripView
 from .trip_destination_view import TripDestinationView
 from .trip_experience_view import TripExperienceView
+from .subscription_view import SubscriptionView
