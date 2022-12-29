@@ -2,7 +2,7 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from trouvailleapi.models import Traveler
+from trouvailleapi.models import Traveler, Subscription
 from rest_framework import permissions
 from rest_framework.decorators import api_view, permission_classes
 
@@ -34,6 +34,19 @@ class TravelerView(ViewSet):
                 traveler = Traveler.objects.get(user=request.auth.user)
             else:
                 traveler = Traveler.objects.get(pk=pk)
+            
+            auth_traveler = Traveler.objects.get(user=request.auth.user)
+
+            matched_subscriptions = Subscription.objects.filter(traveler=traveler).filter(follower=auth_traveler)
+            if len(matched_subscriptions) == 0:
+                traveler.subscribed = False
+            else:
+                traveler.subscribed = True
+
+            if auth_traveler == traveler:
+                traveler.myself = True
+            else:
+                traveler.myself = False
                 
             serializer = TravelerSerializer(traveler)
             return Response(serializer.data, status=status.HTTP_200_OK)
@@ -49,6 +62,23 @@ class TravelerView(ViewSet):
         """
 
         travelers = Traveler.objects.all()
+
+        if 'subscription' in request.query_params:
+            if request.query_params['subscription'] == 'true':
+                subscriptions = Subscription.objects.all()
+                auth_traveler = Traveler.objects.get(user=request.auth.user)
+
+                for traveler in travelers:
+                    matched_subscriptions = subscriptions.filter(traveler=traveler).filter(follower=auth_traveler)
+                    if len(matched_subscriptions) == 0:
+                        traveler.subscribed = False
+                    else:
+                        traveler.subscribed = True
+                    if auth_traveler == traveler:
+                        traveler.myself = True
+                    else:
+                        traveler.myself = False
+
         serializer = TravelerSerializer(travelers, many=True)
         return Response(serializer.data)
 
@@ -79,4 +109,4 @@ class TravelerSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Traveler
-        fields = ('id', 'full_name', 'username', 'bio', 'profile_image_url')
+        fields = ('id', 'full_name', 'username', 'bio', 'profile_image_url', 'subscribed', 'myself')

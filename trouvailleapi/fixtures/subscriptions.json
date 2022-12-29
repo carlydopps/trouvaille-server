@@ -1,0 +1,26 @@
+[
+    {
+        "model": "trouvailleapi.subscription",
+        "pk": 1,
+        "fields": {
+            "follower": 1,
+            "traveler": 2
+        }
+    },
+    {
+        "model": "trouvailleapi.subscription",
+        "pk": 2,
+        "fields": {
+            "follower": 1,
+            "traveler": 3
+        }
+    },
+    {
+        "model": "trouvailleapi.subscription",
+        "pk": 3,
+        "fields": {
+            "follower": 3,
+            "traveler": 2
+        }
+    }
+]

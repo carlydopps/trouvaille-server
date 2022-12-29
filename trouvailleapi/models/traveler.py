@@ -15,3 +15,19 @@ class Traveler(models.Model):
     @property
     def username(self):
         return f'{self.user.username}'
+
+    @property
+    def subscribed(self):
+        return self.__subscribed
+
+    @subscribed.setter
+    def subscribed(self, value):
+        self.__subscribed = value
+
+    @property
+    def myself(self):
+        return self.__myself
+
+    @myself.setter
+    def myself(self, value):
+        self.__myself = value
