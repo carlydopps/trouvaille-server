@@ -1,0 +1,29 @@
+[
+    {
+        "model": "trouvailleapi.comment",
+        "pk": 1,
+        "fields": {
+            "trip": 1,
+            "traveler": 2,
+            "message": "Idletyme was our favorite!"
+        }
+    },
+    {
+        "model": "trouvailleapi.comment",
+        "pk": 2,
+        "fields": {
+            "trip": 1,
+            "traveler": 3,
+            "message": "I just added this trip to my bucket list."
+        }
+    },
+    {
+        "model": "trouvailleapi.comment",
+        "pk": 3,
+        "fields": {
+            "trip": 2,
+            "traveler": 2,
+            "message": "We just visited here and had the best time!"
+        }
+    }
+]

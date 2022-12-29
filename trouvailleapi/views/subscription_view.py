@@ -70,7 +70,7 @@ class SubscriptionView(ViewSet):
         return Response(None, status=status.HTTP_204_NO_CONTENT)
 
     @action(methods=['delete'], detail=True)
-    def unsubscribe(self, request, pk):
+    def unfollow(self, request, pk):
         """ Delete request for a subscription"""
         traveler = Traveler.objects.get(pk=request.query_params['traveler'])
         follower = Traveler.objects.get(user=request.auth.user)

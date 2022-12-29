@@ -17,12 +17,12 @@ class Traveler(models.Model):
         return f'{self.user.username}'
 
     @property
-    def subscribed(self):
-        return self.__subscribed
+    def following(self):
+        return self.__following
 
-    @subscribed.setter
-    def subscribed(self, value):
-        self.__subscribed = value
+    @following.setter
+    def following(self, value):
+        self.__following = value
 
     @property
     def myself(self):

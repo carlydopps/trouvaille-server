@@ -22,3 +22,11 @@ class Trip(models.Model):
     @my_trip.setter
     def my_trip(self, value):
         self.__my_trip = value
+
+    @property
+    def favorite(self):
+        return self.__favorite
+
+    @favorite.setter
+    def favorite(self, value):
+        self.__favorite = value

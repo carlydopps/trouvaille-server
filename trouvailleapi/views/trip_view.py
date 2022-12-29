@@ -5,7 +5,7 @@ from rest_framework import serializers, status
 from django.utils import timezone
 from datetime import datetime
 from rest_framework.decorators import action
-from trouvailleapi.models import Trip, Traveler, Style, Season, Duration, Experience, Destination, ExperienceType
+from trouvailleapi.models import Trip, Traveler, Style, Season, Duration, Experience, Destination, ExperienceType, FavoriteTrip, Comment
 from rest_framework import permissions
 from rest_framework.decorators import api_view, permission_classes
 
@@ -35,11 +35,18 @@ class TripView(ViewSet):
 
         try:
             trip = Trip.objects.get(pk=pk)
-            auth_user = Traveler.objects.get(user=request.auth.user)
-            if  trip.traveler.id == auth_user.id:
+            auth_traveler = Traveler.objects.get(user=request.auth.user)
+            if  trip.traveler == auth_traveler:
                 trip.my_trip = True
             else:
                 trip.my_trip = False
+            
+            matched_favorite = FavoriteTrip.objects.filter(trip=trip).filter(traveler=auth_traveler)
+            if len(matched_favorite) == 0:
+                trip.favorite = False
+            else:
+                trip.favorite = True
+
             serializer = TripSerializer(trip)
             return Response(serializer.data, status=status.HTTP_200_OK)
         except:
@@ -58,6 +65,18 @@ class TripView(ViewSet):
             if request.query_params["status"] == "created":
                 traveler = Traveler.objects.get(user=request.auth.user)
                 trips = trips.filter(traveler = traveler)
+        
+        if 'auth' in request.query_params:
+            if request.query_params['auth'] == 'required':
+                favorite_trips = FavoriteTrip.objects.all()
+                auth_traveler = Traveler.objects.get(user=request.auth.user)
+
+                for trip in trips:
+                    matched_favorite = favorite_trips.filter(trip=trip).filter(traveler=auth_traveler)
+                    if len(matched_favorite) == 0:
+                        trip.favorite = False
+                    else:
+                        trip.favorite = True
 
         serializer = TripSerializer(trips, many=True)
         return Response(serializer.data)
@@ -117,9 +136,13 @@ class TripView(ViewSet):
         return Response(None, status=status.HTTP_204_NO_CONTENT)
 
     def destroy(self, request, pk):
+        traveler = Traveler.objects.get(user=request.auth.user)
         trip = Trip.objects.get(pk=pk)
-        trip.delete()
-        return Response(None, status=status.HTTP_204_NO_CONTENT)
+        if traveler == trip.traveler:
+            trip.delete()
+            return Response(None, status=status.HTTP_204_NO_CONTENT)
+        else:
+            return Response(None, status=status.HTTP_405_METHOD_NOT_ALLOWED)
     
     @action(methods=['delete'], detail=True)
     def remove_destination(self, request, pk):
@@ -190,6 +213,15 @@ class DestinationSerializer(serializers.ModelSerializer):
         model = Destination
         fields = ('id', 'city', 'state', 'country')
 
+class CommentSerializer(serializers.ModelSerializer):
+    """JSON serializer for trip comment"""
+
+    traveler = TravelerSerializer(many=False)
+    
+    class Meta:
+        model = Comment
+        fields = ('id', 'trip', 'traveler', 'message')
+
 class TripSerializer(serializers.ModelSerializer):
     """JSON serializer for trips"""
 
@@ -199,7 +231,8 @@ class TripSerializer(serializers.ModelSerializer):
     duration = DurationSerializer(many=False)
     experiences = ExperienceSerializer(many=True)
     destinations = DestinationSerializer(many=True)
+    trip_comments = CommentSerializer(many=True)
     
     class Meta:
         model = Trip
-        fields = ('id', 'title', 'summary', 'traveler', 'style', 'season', 'duration', 'is_draft', 'is_upcoming', 'is_private', 'modified_date', 'experiences', 'destinations', 'my_trip')
+        fields = ('id', 'title', 'summary', 'traveler', 'style', 'season', 'duration', 'is_draft', 'is_upcoming', 'is_private', 'modified_date', 'my_trip', 'favorite', 'experiences', 'destinations', 'trip_comments')

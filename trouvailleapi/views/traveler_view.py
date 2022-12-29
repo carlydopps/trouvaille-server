@@ -2,7 +2,7 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from trouvailleapi.models import Traveler, Subscription, Trip
+from trouvailleapi.models import Traveler, Subscription, Trip, FavoriteTrip
 from rest_framework import permissions
 from rest_framework.decorators import api_view, permission_classes
 
@@ -37,11 +37,11 @@ class TravelerView(ViewSet):
             
             auth_traveler = Traveler.objects.get(user=request.auth.user)
 
-            matched_subscriptions = Subscription.objects.filter(traveler=traveler).filter(follower=auth_traveler)
-            if len(matched_subscriptions) == 0:
-                traveler.subscribed = False
+            matched_subscription = Subscription.objects.filter(traveler=traveler).filter(follower=auth_traveler)
+            if len(matched_subscription) == 0:
+                traveler.following = False
             else:
-                traveler.subscribed = True
+                traveler.following = True
 
             if auth_traveler == traveler:
                 traveler.myself = True
@@ -63,17 +63,17 @@ class TravelerView(ViewSet):
 
         travelers = Traveler.objects.all()
 
-        if 'subscription' in request.query_params:
-            if request.query_params['subscription'] == 'true':
+        if 'auth' in request.query_params:
+            if request.query_params['auth'] == 'required':
                 subscriptions = Subscription.objects.all()
                 auth_traveler = Traveler.objects.get(user=request.auth.user)
 
                 for traveler in travelers:
-                    matched_subscriptions = subscriptions.filter(traveler=traveler).filter(follower=auth_traveler)
-                    if len(matched_subscriptions) == 0:
-                        traveler.subscribed = False
+                    matched_subscription = subscriptions.filter(traveler=traveler).filter(follower=auth_traveler)
+                    if len(matched_subscription) == 0:
+                        traveler.following = False
                     else:
-                        traveler.subscribed = True
+                        traveler.following = True
                     if auth_traveler == traveler:
                         traveler.myself = True
                     else:
@@ -103,7 +103,8 @@ class TravelerView(ViewSet):
 
         return Response(None, status=status.HTTP_204_NO_CONTENT)
 
-class TravelerTripsSerializer(serializers.ModelSerializer):
+
+class TripSerializer(serializers.ModelSerializer):
     """JSON serializer for traveler trips """
 
     class Meta:
@@ -111,11 +112,21 @@ class TravelerTripsSerializer(serializers.ModelSerializer):
         fields = ('id', 'title', 'summary', 'style', 'season', 'duration', 'is_draft', 'is_upcoming', 'is_private', 'modified_date', 'experiences', 'destinations')
         depth = 1
 
+class FavoriteTripSerializer(serializers.ModelSerializer):
+    """JSON serializer for traveler trips """
+
+    trip = TripSerializer(many=False)
+
+    class Meta:
+        model = FavoriteTrip
+        fields = ('id', 'trip', 'traveler')
+
 class TravelerSerializer(serializers.ModelSerializer):
     """JSON serializer for travelers"""
 
-    traveled_trips = TravelerTripsSerializer(many=True)
+    traveled_trips = TripSerializer(many=True)
+    favorite_trips = FavoriteTripSerializer(many=True)
     
     class Meta:
         model = Traveler
-        fields = ('id', 'full_name', 'username', 'bio', 'profile_image_url', 'subscribed', 'myself', 'follower_count', 'traveled_trips')
+        fields = ('id', 'full_name', 'username', 'bio', 'profile_image_url', 'following', 'myself', 'follower_count', 'traveled_trips', 'favorite_trips')
