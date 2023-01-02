@@ -6,7 +6,16 @@ class Traveler(models.Model):
     """Database model for a traveler"""
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.CharField(max_length=250)
-    profile_image_url = models.CharField(max_length=100)
+    profile_img = models.CharField(max_length=100)
+    cover_img = models.CharField(max_length=100, default="")
+
+    @property
+    def first_name(self):
+        return f'{self.user.first_name}'
+
+    @property
+    def last_name(self):
+        return f'{self.user.last_name}'
 
     @property
     def full_name(self):

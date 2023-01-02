@@ -102,4 +102,4 @@ class ExperienceSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Experience
-        fields = ('id', 'title', 'address', 'website_url', 'experience_type')
+        fields = ('id', 'title', 'address', 'website_url', 'experience_type', 'image', 'experience_trips')

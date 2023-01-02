@@ -83,7 +83,7 @@ class TravelerSerializer(serializers.ModelSerializer):
 
     class Meta:
             model = Traveler
-            fields = ('id', 'full_name', 'profile_image_url')
+            fields = ('id', 'first_name', 'profile_img')
 
 class CommentSerializer(serializers.ModelSerializer):
     """JSON serializer for comments"""

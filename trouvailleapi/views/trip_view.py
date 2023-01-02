@@ -59,7 +59,7 @@ class TripView(ViewSet):
         Returns:
             Response -- JSON serialized list of trips
         """
-        trips = Trip.objects.all()
+        trips = Trip.objects.all().order_by('-modified_date')
 
         if 'status' in request.query_params:
             if request.query_params["status"] == "created":
@@ -77,6 +77,10 @@ class TripView(ViewSet):
                         trip.favorite = False
                     else:
                         trip.favorite = True
+        
+        if 'preview' in request.query_params:
+            end = int(request.query_params['preview'])
+            trips = trips[0:end]
 
         serializer = TripSerializer(trips, many=True)
         return Response(serializer.data)
@@ -167,7 +171,7 @@ class TravelerSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Traveler
-        fields = ('id', 'full_name', 'profile_image_url')
+        fields = ('id', 'first_name', 'full_name', 'username', 'profile_img')
 
 class StyleSerializer(serializers.ModelSerializer):
     """JSON serializer for trip style"""
@@ -204,7 +208,7 @@ class ExperienceSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Experience
-        fields = ('id', 'title', 'address', 'website_url', 'experience_type')
+        fields = ('id', 'title', 'address', 'website_url', 'experience_type', 'image')
 
 class DestinationSerializer(serializers.ModelSerializer):
     """JSON serializer for trip duration"""
@@ -235,4 +239,4 @@ class TripSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Trip
-        fields = ('id', 'title', 'summary', 'traveler', 'style', 'season', 'duration', 'is_draft', 'is_upcoming', 'is_private', 'modified_date', 'my_trip', 'favorite', 'experiences', 'destinations', 'trip_comments')
+        fields = ('id', 'title', 'summary', 'traveler', 'cover_img', 'style', 'season', 'duration', 'is_draft', 'is_upcoming', 'is_private', 'modified_date', 'my_trip', 'favorite', 'experiences', 'destinations', 'trip_comments')

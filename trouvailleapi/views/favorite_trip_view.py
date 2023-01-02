@@ -78,7 +78,7 @@ class TravelerSerializer(serializers.ModelSerializer):
 
     class Meta:
             model = Traveler
-            fields = ('id', 'full_name', 'profile_image_url')
+            fields = ('id', 'full_name', 'profile_img')
 
 class FavoriteTripSerializer(serializers.ModelSerializer):
     """JSON serializer for favorite_trips"""

@@ -50,8 +50,9 @@ def register_user(request):
 
     traveler = Traveler.objects.create(
         bio=request.data['bio'],
-        profile_image_url=request.data['profileImg'],
-        user=new_user,
+        profile_img=request.data['profileImg'],
+        cover_img=request.data['coverImg'],
+        user=new_user
     )
 
     token = Token.objects.create(user=traveler.user)
