@@ -60,6 +60,7 @@ class ExperienceView(ViewSet):
             title = request.data["title"],
             address = request.data["address"],
             website_url = request.data["websiteUrl"],
+            image = request.data["image"],
             experience_type = experience_type
         )
         serializer = ExperienceSerializer(experience)
@@ -76,6 +77,7 @@ class ExperienceView(ViewSet):
         experience.title = request.data["title"]
         experience.address = request.data["address"]
         experience.website_url = request.data["websiteUrl"]
+        experience.image = request.data["image"]
 
         experience_type = ExperienceType.objects.get(pk=request.data["experienceTypeId"])
         experience.experience_type = experience_type
