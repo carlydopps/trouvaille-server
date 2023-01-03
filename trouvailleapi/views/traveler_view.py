@@ -78,6 +78,10 @@ class TravelerView(ViewSet):
                         traveler.myself = True
                     else:
                         traveler.myself = False
+            
+            if 'preview' in request.query_params:
+                end = int(request.query_params['preview'])
+                travelers = travelers[0:end]
 
         serializer = TravelerSerializer(travelers, many=True)
         return Response(serializer.data)
@@ -91,7 +95,8 @@ class TravelerView(ViewSet):
 
         traveler = Traveler.objects.get(user=request.auth.user)
         traveler.bio = request.data["bio"]
-        traveler.profile_image_url = request.data["profileImg"]
+        traveler.profile_img = request.data["profileImg"]
+        traveler.cover_img = request.data["coverImg"]
 
         user = request.auth.user
         user.last_name = request.data["lastName"]
@@ -109,7 +114,7 @@ class TripSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Trip
-        fields = ('id', 'title', 'summary', 'style', 'season', 'duration', 'is_draft', 'is_upcoming', 'is_private', 'modified_date', 'experiences', 'destinations')
+        fields = ('id', 'title', 'summary', 'cover_img', 'style', 'season', 'duration', 'is_draft', 'is_upcoming', 'is_private', 'modified_date', 'experiences', 'destinations')
         depth = 1
 
 class FavoriteTripSerializer(serializers.ModelSerializer):
@@ -129,4 +134,4 @@ class TravelerSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Traveler
-        fields = ('id', 'full_name', 'username', 'bio', 'profile_image_url', 'following', 'myself', 'follower_count', 'traveled_trips', 'favorite_trips')
+        fields = ('id', 'first_name', 'last_name', 'full_name', 'username', 'bio', 'profile_img', 'cover_img', 'following', 'myself', 'follower_count', 'traveled_trips', 'favorite_trips')
