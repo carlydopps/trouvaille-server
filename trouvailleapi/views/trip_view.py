@@ -5,7 +5,7 @@ from rest_framework import serializers, status
 from django.utils import timezone
 from datetime import datetime
 from rest_framework.decorators import action
-from trouvailleapi.models import Trip, Traveler, Style, Season, Duration, Experience, Destination, ExperienceType, FavoriteTrip, Comment
+from trouvailleapi.models import Trip, Traveler, Style, Season, Duration, Experience, Destination, ExperienceType, FavoriteTrip, Comment, Image
 from rest_framework import permissions
 from rest_framework.decorators import api_view, permission_classes
 
@@ -16,7 +16,7 @@ class TripPermission(permissions.BasePermission):
     def has_permission(self, request, view):
         if view.action in ['list']:
             return True
-        elif view.action in ['retrieve', 'create', 'update', 'destroy']:
+        elif view.action in ['retrieve', 'create', 'update', 'destroy', 'remove_destination', 'remove_experience']:
             return request.auth is not None
         else:
             return False
@@ -103,6 +103,7 @@ class TripView(ViewSet):
             is_upcoming = request.data["isUpcoming"],
             is_private = request.data["isPrivate"],
             modified_date = timezone.now(),
+            cover_img = request.data["coverImg"],
             traveler = traveler,
             style = style,
             season = season,
@@ -140,6 +141,11 @@ class TripView(ViewSet):
         return Response(None, status=status.HTTP_204_NO_CONTENT)
 
     def destroy(self, request, pk):
+
+        # trip = Trip.objects.get(pk=pk)
+        # trip.delete()
+        # return Response(None, status=status.HTTP_204_NO_CONTENT)
+
         traveler = Traveler.objects.get(user=request.auth.user)
         trip = Trip.objects.get(pk=pk)
         if traveler == trip.traveler:
@@ -224,7 +230,14 @@ class CommentSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Comment
-        fields = ('id', 'trip', 'traveler', 'message')
+        fields = ('id', 'traveler', 'message')
+
+class ImageSerializer(serializers.ModelSerializer):
+    """JSON serializer for trip image"""
+    
+    class Meta:
+        model = Image
+        fields = ('id', 'img_url', 'order')
 
 class TripSerializer(serializers.ModelSerializer):
     """JSON serializer for trips"""
@@ -236,7 +249,8 @@ class TripSerializer(serializers.ModelSerializer):
     experiences = ExperienceSerializer(many=True)
     destinations = DestinationSerializer(many=True)
     trip_comments = CommentSerializer(many=True)
+    trip_images = ImageSerializer(many=True)
     
     class Meta:
         model = Trip
-        fields = ('id', 'title', 'summary', 'traveler', 'cover_img', 'style', 'season', 'duration', 'is_draft', 'is_upcoming', 'is_private', 'modified_date', 'my_trip', 'favorite', 'experiences', 'destinations', 'trip_comments')
+        fields = ('id', 'title', 'summary', 'traveler', 'cover_img', 'style', 'season', 'duration', 'is_draft', 'is_upcoming', 'is_private', 'modified_date', 'my_trip', 'favorite', 'experiences', 'destinations', 'trip_comments', 'trip_images')

@@ -1,0 +1,74 @@
+[
+    {
+        "model": "trouvailleapi.image",
+        "pk": 1,
+        "fields": {
+            "trip": 2,
+            "img_url": "https://res.cloudinary.com/dupram4w7/image/upload/v1672372505/Trouvaille/Leavenworth/Leavenworth-5_vesjh7.webp",
+            "order": 1
+        }
+    },
+    {
+        "model": "trouvailleapi.image",
+        "pk": 2,
+        "fields": {
+            "trip": 2,
+            "img_url": "https://res.cloudinary.com/dupram4w7/image/upload/v1672372340/Trouvaille/Leavenworth/iciclegorge_nefm0u.jpg",
+            "order": 2
+        }
+    },
+    {
+        "model": "trouvailleapi.image",
+        "pk": 3,
+        "fields": {
+            "trip": 2,
+            "img_url": "https://res.cloudinary.com/dupram4w7/image/upload/v1672372314/Trouvaille/Leavenworth/Rectangle_21_mw9wn0.png",
+            "order": 3
+        }
+    },
+    {
+        "model": "trouvailleapi.image",
+        "pk": 4,
+        "fields": {
+            "trip": 1,
+            "img_url": "https://res.cloudinary.com/dupram4w7/image/upload/v1672381441/Trouvaille/Stowe/Maine-Fall-Foliage_mhoo5i.jpg",
+            "order": 1
+        }
+    },
+    {
+        "model": "trouvailleapi.image",
+        "pk": 5,
+        "fields": {
+            "trip": 1,
+            "img_url": "https://res.cloudinary.com/dupram4w7/image/upload/v1672381439/Trouvaille/Stowe/vermont-foliage-drive-520x780_zzmuni.jpg",
+            "order": 2
+        }
+    },
+    {
+        "model": "trouvailleapi.image",
+        "pk": 6,
+        "fields": {
+            "trip": 1,
+            "img_url": "https://res.cloudinary.com/dupram4w7/image/upload/v1672381564/Trouvaille/Stowe/cold-hollow-cider-mill-stowe-vermont-1_vyyewq.webp",
+            "order": 3
+        }
+    },
+    {
+        "model": "trouvailleapi.image",
+        "pk": 7,
+        "fields": {
+            "trip": 1,
+            "img_url": "https://res.cloudinary.com/dupram4w7/image/upload/v1672381566/Trouvaille/Stowe/201902_stw_schloff_spruce_night_iceskate_720x480_o0y2bn.jpg",
+            "order": 4
+        }
+    },
+    {
+        "model": "trouvailleapi.image",
+        "pk": 8,
+        "fields": {
+            "trip": 1,
+            "img_url": "https://res.cloudinary.com/dupram4w7/image/upload/v1672381629/Trouvaille/Stowe/Stowe-Vermont_vs1h74.webp",
+            "order": 5
+        }
+    }
+]
