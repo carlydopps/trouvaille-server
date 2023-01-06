@@ -49,7 +49,7 @@ class DestinationView(ViewSet):
         return Response(serializer.data)
 
     def create(self, request):
-        """Handle POST operations for an destination
+        """Handle POST operations for a destination
 
         Returns
             Response -- JSON serialized destination instance
@@ -64,7 +64,7 @@ class DestinationView(ViewSet):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
     def update(self, request, pk):
-        """Handle PUT requests for an destination
+        """Handle PUT requests for a destination
 
         Returns:
             Response -- Empty body with 204 status code

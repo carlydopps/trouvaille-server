@@ -12,3 +12,4 @@ from .trip_experience_view import TripExperienceView
 from .subscription_view import SubscriptionView
 from .comment_view import CommentView
 from .favorite_trip_view import FavoriteTripView
+from .image_view import ImageView

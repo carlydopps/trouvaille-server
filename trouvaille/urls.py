@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
 from rest_framework import routers
-from trouvailleapi.views import register_user, login_user, ExperienceView, ExperienceTypeView, DestinationView, DurationView, SeasonView, StyleView, TravelerView, TripView, TripDestinationView, TripExperienceView, SubscriptionView, CommentView, FavoriteTripView
+from trouvailleapi.views import register_user, login_user, ExperienceView, ExperienceTypeView, DestinationView, DurationView, SeasonView, StyleView, TravelerView, TripView, TripDestinationView, TripExperienceView, SubscriptionView, CommentView, FavoriteTripView, ImageView
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'experiences', ExperienceView, 'experience')
@@ -33,6 +33,7 @@ router.register(r'trip_experiences', TripExperienceView,'trip_experience')
 router.register(r'subscriptions', SubscriptionView,'subscription')
 router.register(r'comments', CommentView,'comment')
 router.register(r'favorite_trips', FavoriteTripView,'favorite_trip')
+router.register(r'images', ImageView,'image')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
