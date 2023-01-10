@@ -83,7 +83,7 @@ class TripView(ViewSet):
         if 'preview' in request.query_params:
             end = int(request.query_params['preview'])
             trips = trips[0:end]
-
+            
         serializer = TripSerializer(trips, many=True)
         return Response(serializer.data)
 

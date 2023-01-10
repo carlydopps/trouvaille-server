@@ -16,3 +16,6 @@ python3 manage.py loaddata subscriptions
 python3 manage.py loaddata trips
 python3 manage.py loaddata trip_destinations
 python3 manage.py loaddata trip_experiences
+python3 manage.py loaddata comments
+python3 manage.py loaddata favorite_trips
+python3 manage.py loaddata images

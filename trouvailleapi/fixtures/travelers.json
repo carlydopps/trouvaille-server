@@ -4,9 +4,9 @@
         "pk": 1,
         "fields": {
             "user": 1,
-            "bio": "Hello, my name is Ryan! I love to travel the country in my camper and have been on the road full time for the past two years.",
+            "bio": "Hello, my name is Sam! I love to travel the country in my camper and have been on the road full time for the past two years.",
             "profile_img": "https://res.cloudinary.com/dupram4w7/image/upload/v1670273673/Trouvaille/IMG_5372_gqspc9.jpg",
-            "cover_img": "https://res.cloudinary.com/dupram4w7/image/upload/v1672466537/Trouvaille/pexels-krivec-ales-547119_xsvwvy.jpg"
+            "cover_img": "https://res.cloudinary.com/dupram4w7/image/upload/v1672636796/Trouvaille/pexels-stan-swinnen-6465964_kuquyo.jpg"
         }
     },
     {
@@ -24,9 +24,59 @@
         "pk": 3,
         "fields": {
             "user": 3,
-            "bio": "I'm Calla! I like to travel around the world - especially to beautiful cities and beaches.",
-            "profile_img": "https://res.cloudinary.com/dupram4w7/image/upload/v1672610905/Trouvaille/Screen_Shot_2023-01-01_at_4.05.35_PM_kwexjc.png",
-            "cover_img": "https://res.cloudinary.com/dupram4w7/image/upload/v1672466537/Trouvaille/pexels-krivec-ales-547119_xsvwvy.jpg"
+            "bio": "Welcome to my page - I'm Calla! I'm a full-time photographer and traveler that loves a good hike, a morning cup of coffee, and a new adventure",
+            "profile_img": "https://res.cloudinary.com/dupram4w7/image/upload/v1672682075/Trouvaille/Traveler%20profiles/Screen_Shot_2023-01-02_at_11.49.00_AM_wzqmpq.png",
+            "cover_img": "https://res.cloudinary.com/dupram4w7/image/upload/v1672625674/Trouvaille/ivana-cajina-TUXUCVXmjQk-unsplash_ihzatz.jpg"
+        }
+    },
+    {
+        "model": "trouvailleapi.traveler",
+        "pk": 4,
+        "fields": {
+            "user": 4,
+            "bio": "Barcelona native drawn to photography, skiing, and adventure",
+            "profile_img": "https://res.cloudinary.com/dupram4w7/image/upload/v1672681078/Trouvaille/Traveler%20profiles/Screen_Shot_2023-01-02_at_11.36.27_AM_kvmrz9.png",
+            "cover_img": "https://res.cloudinary.com/dupram4w7/image/upload/v1672636785/Trouvaille/pexels-khairul-leon-695779_zue3fc.jpg"
+        }
+    },
+    {
+        "model": "trouvailleapi.traveler",
+        "pk": 5,
+        "fields": {
+            "user": 5,
+            "bio": "Bought a one-way ticket and never looked back! Come join me on some of my most unique adventures across Europe",
+            "profile_img": "https://res.cloudinary.com/dupram4w7/image/upload/v1672681079/Trouvaille/Traveler%20profiles/Screen_Shot_2023-01-02_at_11.07.37_AM_geuu4o.png",
+            "cover_img": "https://res.cloudinary.com/dupram4w7/image/upload/v1672636797/Trouvaille/pexels-janiere-fernandez-5110226_giux8i.jpg"
+        }
+    },
+    {
+        "model": "trouvailleapi.traveler",
+        "pk": 6,
+        "fields": {
+            "user": 6,
+            "bio": "Searching for the next adventure - traveled all over the US and Canada",
+            "profile_img": "https://res.cloudinary.com/dupram4w7/image/upload/v1672682074/Trouvaille/Traveler%20profiles/Screen_Shot_2023-01-02_at_11.54.16_AM_kr05f4.png",
+            "cover_img": "https://res.cloudinary.com/dupram4w7/image/upload/v1672636791/Trouvaille/pexels-darina-belonogova-9159958_dnj3zl.jpg"
+        }
+    },
+    {
+        "model": "trouvailleapi.traveler",
+        "pk": 7,
+        "fields": {
+            "user": 7,
+            "bio": "Based in Seattle and know every hidden gem across the pacific northwest",
+            "profile_img": "https://res.cloudinary.com/dupram4w7/image/upload/v1672681079/Trouvaille/Traveler%20profiles/Screen_Shot_2023-01-02_at_11.31.45_AM_jjll9w.png",
+            "cover_img": "https://res.cloudinary.com/dupram4w7/image/upload/v1672636796/Trouvaille/pexels-ali-kazal-10772381_v2fcj4.jpg"
+        }
+    },
+    {
+        "model": "trouvailleapi.traveler",
+        "pk": 8,
+        "fields": {
+            "user": 8,
+            "bio": "Adventuring my way across the world - check out my trips from road trips all across the U.S.",
+            "profile_img": "https://res.cloudinary.com/dupram4w7/image/upload/v1672682761/Trouvaille/Traveler%20profiles/Screen_Shot_2023-01-02_at_12.05.47_PM_afiewr.png",
+            "cover_img": "https://res.cloudinary.com/dupram4w7/image/upload/v1672636797/Trouvaille/pexels-pascal-meier-10799233_xrpqmj.jpg"
         }
     }
 ]
