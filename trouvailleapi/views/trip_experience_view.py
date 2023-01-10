@@ -50,6 +50,7 @@ class TripExperienceView(ViewSet):
         serializer = TripExperienceSerializer(trip_experience)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
+
 class TripExperienceSerializer(serializers.ModelSerializer):
     """JSON serializer for trip experiences"""
     

@@ -4,7 +4,8 @@
         "pk": 1,
         "fields": {
             "trip": 1,
-            "experience": 2
+            "experience": 2,
+            "note": "You can take the bike path right up to the garden in the back!"
         }
     },
     {
@@ -12,7 +13,8 @@
         "pk": 2,
         "fields": {
             "trip": 1,
-            "experience": 4
+            "experience": 4,
+            "note": "We tried their apple cider smoothies and bought lots of maple syrup to bring home!"
         }
     },
     {
@@ -20,7 +22,8 @@
         "pk": 3,
         "fields": {
             "trip": 2,
-            "experience": 1
+            "experience": 1,
+            "note": "Go to section B for more excluded and wooded sites"
         }
     }
 ]

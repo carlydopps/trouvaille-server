@@ -62,26 +62,27 @@ class TravelerView(ViewSet):
         """
 
         travelers = Traveler.objects.all()
+        subscriptions = Subscription.objects.all()
 
-        if 'auth' in request.query_params:
-            if request.query_params['auth'] == 'required':
-                subscriptions = Subscription.objects.all()
-                auth_traveler = Traveler.objects.get(user=request.auth.user)
+        if request.auth:
+            auth_traveler = Traveler.objects.get(user=request.auth.user)
+        else:
+            auth_traveler = None
 
-                for traveler in travelers:
-                    matched_subscription = subscriptions.filter(traveler=traveler).filter(follower=auth_traveler)
-                    if len(matched_subscription) == 0:
-                        traveler.following = False
-                    else:
-                        traveler.following = True
-                    if auth_traveler == traveler:
-                        traveler.myself = True
-                    else:
-                        traveler.myself = False
+        for traveler in travelers:
+            matched_subscription = subscriptions.filter(traveler=traveler).filter(follower=auth_traveler)
+            if len(matched_subscription) == 0:
+                traveler.following = False
+            else:
+                traveler.following = True
+            if auth_traveler == traveler:
+                traveler.myself = True
+            else:
+                traveler.myself = False
             
-            if 'preview' in request.query_params:
-                end = int(request.query_params['preview'])
-                travelers = travelers[0:end]
+        if 'preview' in request.query_params:
+            end = int(request.query_params['preview'])
+            travelers = travelers[0:end]
 
         serializer = TravelerSerializer(travelers, many=True)
         return Response(serializer.data)

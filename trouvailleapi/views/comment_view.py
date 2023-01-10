@@ -29,7 +29,7 @@ class CommentView(ViewSet):
             Response -- JSON serialized list of comments
         """
 
-        comments = Comment.objects.all()
+        comments = Comment.objects.all().order_by('-id')
         serializer = CommentSerializer(comments, many=True)
         return Response(serializer.data)
 

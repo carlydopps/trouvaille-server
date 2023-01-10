@@ -1,4 +1,5 @@
 from django.db import models
+from trouvailleapi.models import Experience
 
 class Trip(models.Model):
     """Database model for a trip"""
