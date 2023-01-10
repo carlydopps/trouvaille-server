@@ -5,7 +5,7 @@ from rest_framework import serializers, status
 from django.utils import timezone
 from datetime import datetime
 from rest_framework.decorators import action
-from trouvailleapi.models import Trip, Traveler, Style, Season, Duration, Experience, Destination, ExperienceType, FavoriteTrip, Comment, Image
+from trouvailleapi.models import Trip, Traveler, Style, Season, Duration, Experience, Destination, ExperienceType, FavoriteTrip, Comment, Image, TripExperience
 from rest_framework import permissions
 from rest_framework.decorators import api_view, permission_classes
 
@@ -66,17 +66,19 @@ class TripView(ViewSet):
                 traveler = Traveler.objects.get(user=request.auth.user)
                 trips = trips.filter(traveler = traveler)
         
-        if 'auth' in request.query_params:
-            if request.query_params['auth'] == 'required':
-                favorite_trips = FavoriteTrip.objects.all()
-                auth_traveler = Traveler.objects.get(user=request.auth.user)
+        favorite_trips = FavoriteTrip.objects.all()
 
-                for trip in trips:
-                    matched_favorite = favorite_trips.filter(trip=trip).filter(traveler=auth_traveler)
-                    if len(matched_favorite) == 0:
-                        trip.favorite = False
-                    else:
-                        trip.favorite = True
+        if request.auth :
+            auth_traveler = Traveler.objects.get(user=request.auth.user)
+        else:
+            auth_traveler = None
+
+        for trip in trips:
+            matched_favorite = favorite_trips.filter(trip=trip).filter(traveler=auth_traveler)
+            if len(matched_favorite) == 0:
+                trip.favorite = False
+            else:
+                trip.favorite = True
         
         if 'preview' in request.query_params:
             end = int(request.query_params['preview'])
@@ -141,11 +143,7 @@ class TripView(ViewSet):
         return Response(None, status=status.HTTP_204_NO_CONTENT)
 
     def destroy(self, request, pk):
-
-        # trip = Trip.objects.get(pk=pk)
-        # trip.delete()
-        # return Response(None, status=status.HTTP_204_NO_CONTENT)
-
+        
         traveler = Traveler.objects.get(user=request.auth.user)
         trip = Trip.objects.get(pk=pk)
         if traveler == trip.traveler:
@@ -174,10 +172,14 @@ class TripView(ViewSet):
         
 class TravelerSerializer(serializers.ModelSerializer):
     """JSON serializer for trip traveler"""
+    # follower_count = serializers.SerializerMethodField()
+    follower_count  = serializers.IntegerField(read_only=True)
+    # def get_follower_count(self, model):
+    #     return model.follower_count()
 
     class Meta:
         model = Traveler
-        fields = ('id', 'first_name', 'full_name', 'username', 'profile_img')
+        fields = ('id', 'first_name', 'full_name', 'username', 'profile_img', 'follower_count')
 
 class StyleSerializer(serializers.ModelSerializer):
     """JSON serializer for trip style"""
@@ -207,14 +209,21 @@ class ExperienceTypeSerializer(serializers.ModelSerializer):
         model = ExperienceType
         fields = ('id', 'name')
 
+class ExperienceManagerSerializer(serializers.ModelSerializer):
+    """JSON serializer for experience manager"""
+
+    class Meta:
+        model = TripExperience
+        fields = ('id', 'trip', 'note')
+
 class ExperienceSerializer(serializers.ModelSerializer):
     """JSON serializer for trip duration"""
-
     experience_type = ExperienceTypeSerializer(many=False)
+    experience_trip_experiences = ExperienceManagerSerializer(many=True)
 
     class Meta:
         model = Experience
-        fields = ('id', 'title', 'address', 'website_url', 'experience_type', 'image')
+        fields = ('id', 'title', 'address', 'website_url', 'experience_type', 'image', 'experience_trip_experiences')
 
 class DestinationSerializer(serializers.ModelSerializer):
     """JSON serializer for trip duration"""

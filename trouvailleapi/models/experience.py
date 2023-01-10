@@ -7,3 +7,11 @@ class Experience(models.Model):
     website_url = models.CharField(max_length=100)
     experience_type = models.ForeignKey("ExperienceType", on_delete=models.CASCADE, related_name='experiences')
     image = models.CharField(max_length=100, default="")
+
+    @property
+    def favorite(self):
+        return self.__favorite
+
+    @favorite.setter
+    def favorite(self, value):
+        self.__favorite = value

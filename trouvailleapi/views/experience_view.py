@@ -2,7 +2,7 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from trouvailleapi.models import Experience, ExperienceType
+from trouvailleapi.models import Experience, ExperienceType, TripExperience
 from rest_framework import permissions
 from rest_framework.decorators import api_view, permission_classes
 
@@ -45,6 +45,19 @@ class ExperienceView(ViewSet):
         """
 
         experiences = Experience.objects.all()
+
+        # if 'auth' in request.query_params:
+        #     if request.query_params['auth']:
+        #         favorite_experiences = FavoriteTrip.objects.all()
+        #         auth_traveler = Traveler.objects.get(user=request.auth.user)
+
+        #         for trip in trips:
+        #             matched_favorite = favorite_trips.filter(trip=trip).filter(traveler=auth_traveler)
+        #             if len(matched_favorite) == 0:
+        #                 trip.favorite = False
+        #             else:
+        #                 trip.favorite = True
+
         serializer = ExperienceSerializer(experiences, many=True)
         return Response(serializer.data)
 
@@ -97,11 +110,19 @@ class ExperienceTypeSerializer(serializers.ModelSerializer):
         model = ExperienceType
         fields = ('id', 'name')
 
+class ExperienceManagerSerializer(serializers.ModelSerializer):
+    """JSON serializer for experience manager"""
+
+    class Meta:
+        model = TripExperience
+        fields = ('id', 'trip', 'note')
+
 class ExperienceSerializer(serializers.ModelSerializer):
     """JSON serializer for experiences"""
 
     experience_type = ExperienceTypeSerializer(many=False)
+    experience_trip_experiences = ExperienceManagerSerializer(many=True)
     
     class Meta:
         model = Experience
-        fields = ('id', 'title', 'address', 'website_url', 'experience_type', 'image', 'experience_trips')
+        fields = ('id', 'title', 'address', 'website_url', 'experience_type', 'image', 'experience_trips', 'favorite', 'experience_trip_experiences')
