@@ -22,8 +22,8 @@
         "fields": {
             "title": "Mountain Hideaway",
             "summary": "Stumble upon a Bavarian-styled village nestled in the Cascade mountains",
-            "traveler": 1,
-            "cover_img": "https://res.cloudinary.com/dupram4w7/image/upload/v1672469012/Trouvaille/pexels-richard-galapate-2421017_iextpa.jpg",
+            "traveler": 3,
+            "cover_img": "https://res.cloudinary.com/dupram4w7/image/upload/v1673334060/IMG_1645_q0mi7y.jpg",
             "style": 1,
             "season": 3,
             "duration": 2,
@@ -31,6 +31,159 @@
             "is_upcoming": false,
             "is_private": false,
             "modified_date": "2020-04-02T14:51:39.989Z"
+        }
+    },
+    {
+        "model": "trouvailleapi.trip",
+        "pk": 3,
+        "fields": {
+            "title": "Scenic Canadian Rockies at Banff National Park",
+            "summary": "One of the most scenic national parks in Canada, Banff National Park is a little slice of heaven. With towering mountains, vibrant wildlife, breathtaking sites, fantastic hiking, and an adorable little village, there’s something for everyone here",
+            "traveler": 2,
+            "cover_img": "https://res.cloudinary.com/dupram4w7/image/upload/v1672380787/Trouvaille/Banff/pexels-james-wheeler-417074_1_vlohgq.jpg",
+            "style": 2,
+            "season": 2,
+            "duration": 2,
+            "is_draft": false,
+            "is_upcoming": true,
+            "is_private": false,
+            "modified_date": "2022-08-28T14:51:39.989Z"
+        }
+    },
+     {
+        "model": "trouvailleapi.trip",
+        "pk": 4,
+        "fields": {
+            "title": "Hawaii’s garden island - Kauai",
+            "summary": "Hawaii's oldest island full of adventures, gardens, and unique beaches. The north shore is the most scenic with Na'pali coast, while the east shore is the main hub of the island with the most tourism. This tropical island rains often so be sure to bring your rain coat and wind jacket. The best time of year to visit Kauai is during off-peak seasons, between September and December or between April and June. During these times you can avoid the crowds and enjoy lower prices on accommodations and excursions.",
+            "traveler": 1,
+            "cover_img": "https://res.cloudinary.com/dupram4w7/image/upload/v1673322896/Trouvaille/Kauai/GettyImages-860970846_optoxq.jpg",
+            "style": 2,
+            "season": 1,
+            "duration": 2,
+            "is_draft": true,
+            "is_upcoming": true,
+            "is_private": false,
+            "modified_date": "2022-08-28T14:51:39.989Z"
+        }
+    },
+    {
+        "model": "trouvailleapi.trip",
+        "pk": 5,
+        "fields": {
+            "title": "Explore the green mountains and glacier lakes of Switzerland",
+            "summary": "Switzerland has long been one of the world’s most popular tourist destinations. Offering stunning mountain scenery and a wealth of outdoor adventure.Generally, the best time to visit Switzerland is in the spring/early summer and in the early fall, April through June or September and October. This is when you’re unlikely to battle thick tourist crowds and enjoy some of the most pleasant weather",
+            "traveler": 3,
+            "cover_img": "https://res.cloudinary.com/dupram4w7/image/upload/v1672372128/Trouvaille/Switzerland/stephen-leonardi-CAwqlbtJ3uw-unsplash_ghhrzu.jpg",
+            "style": 3,
+            "season": 1,
+            "duration": 2,
+            "is_draft": false,
+            "is_upcoming": false,
+            "is_private": false,
+            "modified_date": "2022-08-28T14:51:39.989Z"
+        }
+    },
+    {
+        "model": "trouvailleapi.trip",
+        "pk": 6,
+        "fields": {
+            "title": "Hidden mountain town in Washington",
+            "summary": "Leavenworth is one of our favorite places we visited while traveling the country. It’s a Bavarian-styled village in the Cascade Mountains, in central Washington State. Leavenworth is known for its scenic setting in the Cascades, and there are many outdoor activities that tourists can participate in, such as hiking, river-rafting, floating the river, swimming, skiing, horseback riding, snowshoeing, and rock-climbing.",
+            "traveler": 2,
+            "cover_img": "https://res.cloudinary.com/dupram4w7/image/upload/v1672372314/Trouvaille/Leavenworth/Rectangle_21_mw9wn0.png",
+            "style": 1,
+            "season": 3,
+            "duration": 1,
+            "is_draft": false,
+            "is_upcoming": false,
+            "is_private": false,
+            "modified_date": "2022-08-28T14:51:39.989Z"
+        }
+    },
+    {
+        "model": "trouvailleapi.trip",
+        "pk": 7,
+        "fields": {
+            "title": "Norway summers in the Fjords",
+            "summary": "It’s probably a bit unfair to say a country is the most beautiful in the world, but Norway would certainly be a top contender. Its otherworldly landscapes of deep fjords, rugged coastline, majestic glaciers and jagged mountain ridges make for a stunning adventure.",
+            "traveler": 2,
+            "cover_img": "https://res.cloudinary.com/dupram4w7/image/upload/v1672372816/Trouvaille/Norway/tobias-tullius-eJeEz6Paz-o-unsplash_vjkydr.jpg",
+            "style": 2,
+            "season": 2,
+            "duration": 2,
+            "is_draft": false,
+            "is_upcoming": false,
+            "is_private": false,
+            "modified_date": "2022-08-28T14:51:39.989Z"
+        }
+    },
+    {
+        "model": "trouvailleapi.trip",
+        "pk": 8,
+        "fields": {
+            "title": "Fall in Bar Harbor & Acadia",
+            "summary": "Bar Harbor is one of the favorite tourist destinations on the East Coast, offering historic charm, a beautiful coastline, great restaurants, and a range of activities. Bar Harbor is also home to Acadia, the only national park in New England, which boasts many unique features to make it worth a visit. With rugged cliffs of granite along the coast and miles of forested trails, this Maine gem is the perfect place to get outside. From biking the historic carriage roads to hiking Cadillac Mountain or kayaking on Jordan Pond, Acadia and Bar Harbor truly have something for everyone.",
+            "traveler": 3,
+            "cover_img": "https://res.cloudinary.com/dupram4w7/image/upload/v1672455150/Trouvaille/Acadia%20-%20Bar%20Habor/barharbor-0376_zd68gu.jpg",
+            "style": 1,
+            "season": 3,
+            "duration": 1,
+            "is_draft": false,
+            "is_upcoming": true,
+            "is_private": false,
+            "modified_date": "2022-08-28T14:51:39.989Z"
+        }
+    },
+    {
+        "model": "trouvailleapi.trip",
+        "pk": 9,
+        "fields": {
+            "title": "Michigan Summers at Glen Arbor",
+            "summary": "Northwestern Michigan is truly one of the most underrated places in the summer. Nestled on either side of the Sleeping Bear Dunes are the small towns of Glen Arbor & Empire. The streets are lined with quaint shops and great restaurants. This beautiful area features the breathtaking Sleeping Bear Dunes National Lakeshore which is a 72,000-acre national park.",
+            "traveler": 1,
+            "cover_img": "https://res.cloudinary.com/dupram4w7/image/upload/v1673325018/Trouvaille/Glenn%20Arbor/Days-of-Hazy-Splendor-by-Mark-Smith_jhu2n4.jpg",
+            "style": 3,
+            "season": 2,
+            "duration": 3,
+            "is_draft": false,
+            "is_upcoming": false,
+            "is_private": false,
+            "modified_date": "2022-08-28T14:51:39.989Z"
+        }
+    },
+    {
+        "model": "trouvailleapi.trip",
+        "pk": 10,
+        "fields": {
+            "title": "Spend the day at Mackinac Island",
+            "summary": "This ideal vacation spot is a paradise of exploration with incredible natural landmarks, awe-inspiring sunrises and unforgettable sunsets. Mackinac Island is the truly 'all natural' theme park of America. Limited to transportation of horse and buggy, bicycle or foot, surrounded by water, the island offers adventures of all types. There’s unique shopping, diverse dining and extraordinary nightlife, too.",
+            "traveler": 1,
+            "cover_img": "https://res.cloudinary.com/dupram4w7/image/upload/v1673325190/Trouvaille/Mackinac%20Island/77c2f24e16fe4f03317bfb31773713e8_uref0f.jpg",
+            "style": 1,
+            "season": 2,
+            "duration": 1,
+            "is_draft": false,
+            "is_upcoming": true,
+            "is_private": false,
+            "modified_date": "2022-08-28T14:51:39.989Z"
+        }
+    },
+    {
+        "model": "trouvailleapi.trip",
+        "pk": 11,
+        "fields": {
+            "title": "Explore the heart of Hawaii at O’ahu",
+            "summary": "Oʻahu is called the 'Heart of Hawaiʻi', so it's the appropriate home to Hawaiʻi's widest range of popular activities and famous sights. You’ll find an activity and attraction for every inclination, from the North Shore to the Makapuʻu Lighthouse on the island’s southeast tip.",
+            "traveler": 3,
+            "cover_img": "https://res.cloudinary.com/dupram4w7/image/upload/v1673231237/Trouvaille/Oahu/peter-vanosdall-uZVtAixV8c8-unsplash_jrli07.jpg",
+            "style": 2,
+            "season": 1,
+            "duration": 3,
+            "is_draft": false,
+            "is_upcoming": true,
+            "is_private": false,
+            "modified_date": "2022-08-28T14:51:39.989Z"
         }
     }
 ]

@@ -14,5 +14,77 @@
             "trip": 2,
             "destination": 1
         }
+    },
+    {
+        "model": "trouvailleapi.tripdestination",
+        "pk": 3,
+        "fields": {
+            "trip": 3,
+            "destination": 5
+        }
+    },
+    {
+        "model": "trouvailleapi.tripdestination",
+        "pk": 4,
+        "fields": {
+            "trip": 4,
+            "destination": 6
+        }
+    },
+    {
+        "model": "trouvailleapi.tripdestination",
+        "pk": 5,
+        "fields": {
+            "trip": 5,
+            "destination": 12
+        }
+    },
+    {
+        "model": "trouvailleapi.tripdestination",
+        "pk": 6,
+        "fields": {
+            "trip": 6,
+            "destination": 1
+        }
+    },
+    {
+        "model": "trouvailleapi.tripdestination",
+        "pk": 7,
+        "fields": {
+            "trip": 7,
+            "destination": 11
+        }
+    },
+    {
+        "model": "trouvailleapi.tripdestination",
+        "pk": 8,
+        "fields": {
+            "trip": 8,
+            "destination": 7
+        }
+    },
+    {
+        "model": "trouvailleapi.tripdestination",
+        "pk": 9,
+        "fields": {
+            "trip": 9,
+            "destination": 8
+        }
+    },
+    {
+        "model": "trouvailleapi.tripdestination",
+        "pk": 10,
+        "fields": {
+            "trip": 10,
+            "destination": 10
+        }
+    },
+    {
+        "model": "trouvailleapi.tripdestination",
+        "pk": 11,
+        "fields": {
+            "trip": 11,
+            "destination": 9
+        }
     }
 ]

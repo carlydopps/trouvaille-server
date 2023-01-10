@@ -30,8 +30,8 @@
         "model": "trouvailleapi.destination",
         "pk": 4,
         "fields": {
-            "city": "Glen Arbor",
-            "state": "Michigan",
+            "city": "Boulder",
+            "state": "Colorado",
             "country": "US"
         }
     },
@@ -39,9 +39,72 @@
         "model": "trouvailleapi.destination",
         "pk": 5,
         "fields": {
-            "city": "Boulder",
-            "state": "Colorado",
+            "city": "Banff",
+            "state": "Alberta",
+            "country": "Canada"
+        }
+    },
+    {
+        "model": "trouvailleapi.destination",
+        "pk": 6,
+        "fields": {
+            "city": "Kaui",
+            "state": "Hawaii",
             "country": "US"
+        }
+    },
+    {
+        "model": "trouvailleapi.destination",
+        "pk": 7,
+        "fields": {
+            "city": "Bar Harbor",
+            "state": "Maine",
+            "country": "US"
+        }
+    },
+    {
+        "model": "trouvailleapi.destination",
+        "pk": 8,
+        "fields": {
+            "city": "Glen Arbor",
+            "state": "Michigan",
+            "country": "US"
+        }
+    },
+    {
+        "model": "trouvailleapi.destination",
+        "pk": 9,
+        "fields": {
+            "city": "Honolulu",
+            "state": "Hawaii",
+            "country": "US"
+        }
+    },
+    {
+        "model": "trouvailleapi.destination",
+        "pk": 10,
+        "fields": {
+            "city": "Mackinaw City",
+            "state": "Michigan",
+            "country": "US"
+        }
+    },
+    {
+        "model": "trouvailleapi.destination",
+        "pk": 11,
+        "fields": {
+            "city": "Sunnmøre",
+            "state": "Møre og Romsdal",
+            "country": "Norway"
+        }
+    },
+    {
+        "model": "trouvailleapi.destination",
+        "pk": 12,
+        "fields": {
+            "city": "Lauterbrunnen",
+            "state": "Bern",
+            "country": "Switzerland"
         }
     }
 ]

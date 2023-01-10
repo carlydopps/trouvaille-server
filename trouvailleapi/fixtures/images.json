@@ -70,5 +70,86 @@
             "img_url": "https://res.cloudinary.com/dupram4w7/image/upload/v1672381629/Trouvaille/Stowe/Stowe-Vermont_vs1h74.webp",
             "order": 5
         }
+    },
+    {
+        "model": "trouvailleapi.image",
+        "pk": 9,
+        "fields": {
+            "trip": 3,
+            "img_url": "https://res.cloudinary.com/dupram4w7/image/upload/v1672380787/Trouvaille/Banff/pexels-james-wheeler-417074_1_vlohgq.jpg",
+            "order": 1
+        }
+    },
+    {
+        "model": "trouvailleapi.image",
+        "pk": 10,
+        "fields": {
+            "trip": 4,
+            "img_url": "https://res.cloudinary.com/dupram4w7/image/upload/v1673322896/Trouvaille/Kauai/GettyImages-860970846_optoxq.jpg",
+            "order": 1
+        }
+    },
+    {
+        "model": "trouvailleapi.image",
+        "pk": 11,
+        "fields": {
+            "trip": 5,
+            "img_url": "https://res.cloudinary.com/dupram4w7/image/upload/v1672372148/Trouvaille/Switzerland/tim-trad-BYPMtjYMEyk-unsplash_yssvwj.jpg",
+            "order": 1
+        }
+    },
+    {
+        "model": "trouvailleapi.image",
+        "pk": 12,
+        "fields": {
+            "trip": 6,
+            "img_url": "https://res.cloudinary.com/dupram4w7/image/upload/v1672372314/Trouvaille/Leavenworth/Rectangle_21_mw9wn0.png",
+            "order": 1
+        }
+    },
+    {
+        "model": "trouvailleapi.image",
+        "pk": 13,
+        "fields": {
+            "trip": 7,
+            "img_url": "https://res.cloudinary.com/dupram4w7/image/upload/v1672372789/Trouvaille/Norway/pexels-nextvoyage-713081_go5xzg.jpg",
+            "order": 1
+        }
+    },
+    {
+        "model": "trouvailleapi.image",
+        "pk": 14,
+        "fields": {
+            "trip": 8,
+            "img_url": "https://res.cloudinary.com/dupram4w7/image/upload/v1672455150/Trouvaille/Acadia%20-%20Bar%20Habor/barharbor-0376_zd68gu.jpg",
+            "order": 1
+        }
+    },
+    {
+        "model": "trouvailleapi.image",
+        "pk": 15,
+        "fields": {
+            "trip": 9,
+            "img_url": "https://res.cloudinary.com/dupram4w7/image/upload/v1673325018/Trouvaille/Glenn%20Arbor/Days-of-Hazy-Splendor-by-Mark-Smith_jhu2n4.jpg",
+            "order": 1
+        }
+    },
+    {
+        "model": "trouvailleapi.image",
+        "pk": 16,
+        "fields": {
+            "trip": 10,
+            "img_url": "https://res.cloudinary.com/dupram4w7/image/upload/v1673325190/Trouvaille/Mackinac%20Island/77c2f24e16fe4f03317bfb31773713e8_uref0f.jpg",
+            "order": 1
+        }
+    },
+    {
+        "model": "trouvailleapi.image",
+        "pk": 17,
+        "fields": {
+            "trip": 11,
+            "img_url": "https://res.cloudinary.com/dupram4w7/image/upload/v1673231237/Trouvaille/Oahu/peter-vanosdall-uZVtAixV8c8-unsplash_jrli07.jpg",
+            "order": 1
+        }
     }
 ]

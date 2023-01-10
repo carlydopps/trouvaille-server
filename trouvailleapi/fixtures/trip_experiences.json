@@ -25,5 +25,317 @@
             "experience": 1,
             "note": "Go to section B for more excluded and wooded sites"
         }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 4,
+        "fields": {
+            "trip": 3,
+            "experience": 5
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 5,
+        "fields": {
+            "trip": 3,
+            "experience": 6
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 6,
+        "fields": {
+            "trip": 3,
+            "experience": 7
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 7,
+        "fields": {
+            "trip": 3,
+            "experience": 8
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 8,
+        "fields": {
+            "trip": 3,
+            "experience": 9
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 9,
+        "fields": {
+            "trip": 4,
+            "experience": 10
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 10,
+        "fields": {
+            "trip": 4,
+            "experience": 11
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 11,
+        "fields": {
+            "trip": 4,
+            "experience": 12
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 12,
+        "fields": {
+            "trip": 4,
+            "experience": 13
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 13,
+        "fields": {
+            "trip": 5,
+            "experience": 14
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 14,
+        "fields": {
+            "trip": 5,
+            "experience": 15
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 15,
+        "fields": {
+            "trip": 5,
+            "experience": 16
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 16,
+        "fields": {
+            "trip": 5,
+            "experience": 17
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 17,
+        "fields": {
+            "trip": 8,
+            "experience": 18
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 18,
+        "fields": {
+            "trip": 8,
+            "experience": 19
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 19,
+        "fields": {
+            "trip": 8	,
+            "experience": 20
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 20,
+        "fields": {
+            "trip": 8,
+            "experience": 21
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 21,
+        "fields": {
+            "trip": 8,
+            "experience": 22
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 22,
+        "fields": {
+            "trip": 9,
+            "experience": 23
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 23,
+        "fields": {
+            "trip": 9,
+            "experience": 24
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 24,
+        "fields": {
+            "trip": 9,
+            "experience": 25
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 25,
+        "fields": {
+            "trip": 9,
+            "experience": 26
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 26,
+        "fields": {
+            "trip": 10,
+            "experience": 27
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 27,
+        "fields": {
+            "trip": 10,
+            "experience": 28
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 28,
+        "fields": {
+            "trip": 10,
+            "experience": 29
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 29,
+        "fields": {
+            "trip": 10,
+            "experience": 30
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 30,
+        "fields": {
+            "trip": 11,
+            "experience": 31
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 31,
+        "fields": {
+            "trip": 11,
+            "experience": 32
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 32,
+        "fields": {
+            "trip": 11,
+            "experience": 33
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 33,
+        "fields": {
+            "trip": 11,
+            "experience": 34
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 34,
+        "fields": {
+            "trip": 11,
+            "experience": 35
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 35,
+        "fields": {
+            "trip": 7,
+            "experience": 36
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 36,
+        "fields": {
+            "trip": 7,
+            "experience": 37
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 37,
+        "fields": {
+            "trip": 7,
+            "experience": 38
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 38,
+        "fields": {
+            "trip": 7,
+            "experience": 39
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 39,
+        "fields": {
+            "trip": 6,
+            "experience": 40
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 40,
+        "fields": {
+            "trip": 6,
+            "experience": 41
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 41,
+        "fields": {
+            "trip": 6,
+            "experience": 42
+        }
+    },
+    {
+        "model": "trouvailleapi.tripexperience",
+        "pk": 42,
+        "fields": {
+            "trip": 6,
+            "experience": 43
+        }
     }
 ]
