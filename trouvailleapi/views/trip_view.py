@@ -143,7 +143,7 @@ class TripView(ViewSet):
         return Response(None, status=status.HTTP_204_NO_CONTENT)
 
     def destroy(self, request, pk):
-        
+
         traveler = Traveler.objects.get(user=request.auth.user)
         trip = Trip.objects.get(pk=pk)
         if traveler == trip.traveler:
@@ -172,10 +172,7 @@ class TripView(ViewSet):
         
 class TravelerSerializer(serializers.ModelSerializer):
     """JSON serializer for trip traveler"""
-    # follower_count = serializers.SerializerMethodField()
     follower_count  = serializers.IntegerField(read_only=True)
-    # def get_follower_count(self, model):
-    #     return model.follower_count()
 
     class Meta:
         model = Traveler

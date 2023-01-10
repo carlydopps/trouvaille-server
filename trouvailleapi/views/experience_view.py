@@ -45,19 +45,6 @@ class ExperienceView(ViewSet):
         """
 
         experiences = Experience.objects.all()
-
-        # if 'auth' in request.query_params:
-        #     if request.query_params['auth']:
-        #         favorite_experiences = FavoriteTrip.objects.all()
-        #         auth_traveler = Traveler.objects.get(user=request.auth.user)
-
-        #         for trip in trips:
-        #             matched_favorite = favorite_trips.filter(trip=trip).filter(traveler=auth_traveler)
-        #             if len(matched_favorite) == 0:
-        #                 trip.favorite = False
-        #             else:
-        #                 trip.favorite = True
-
         serializer = ExperienceSerializer(experiences, many=True)
         return Response(serializer.data)
 
