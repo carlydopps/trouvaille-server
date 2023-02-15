@@ -22,5 +22,29 @@
             "trip": 2,
             "traveler": 2
         }
+    },
+    {
+        "model": "trouvailleapi.favoritetrip",
+        "pk": 4,
+        "fields": {
+            "trip": 2,
+            "traveler": 1
+        }
+    },
+    {
+        "model": "trouvailleapi.favoritetrip",
+        "pk": 5,
+        "fields": {
+            "trip": 5,
+            "traveler": 1
+        }
+    },
+    {
+        "model": "trouvailleapi.favoritetrip",
+        "pk": 6,
+        "fields": {
+            "trip": 6,
+            "traveler": 1
+        }
     }
 ]
