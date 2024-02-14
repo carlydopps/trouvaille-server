@@ -97,11 +97,11 @@ WSGI_APPLICATION = 'trouvaille.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'trouvaille',
-        'USER': 'trouvaillesuper',
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
         'PASSWORD': 'trouvaillerose',
-        'HOST': 'trouvaille.c7i8aaiw88pp.us-east-2.rds.amazonaws.com',
-        'PORT': 5432,
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT'),
     }
 }
 
