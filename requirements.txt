@@ -17,6 +17,7 @@ pycodestyle==2.11.1
 pylint==3.0.3
 pylint-django==2.5.5
 pylint-plugin-utils==0.8.2
+python-dotenv==1.0.1
 pytz==2024.1
 sqlparse==0.4.4
 tomli==2.0.1
