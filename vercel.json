@@ -17,7 +17,8 @@
         {
             "src": "/(.*)",
             "headers": {
-                "Access-Control-Allow-Origin": "https://trouvaille-frontend.vercel.app"
+                "Access-Control-Allow-Origin": "https://trouvaille-frontend.vercel.app",
+                "Content-Type": "application/json"
             },
             "dest": "trouvaille/wsgi.py"
         }
