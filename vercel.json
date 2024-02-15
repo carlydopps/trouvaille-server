@@ -16,6 +16,9 @@
         },
         {
             "src": "/(.*)",
+            "headers": { 
+                "key": "Access-Control-Allow-Origin", "value": "https://trouvaille-frontend.vercel.app" 
+            },
             "dest": "trouvaille/wsgi.py"
         }
     ]
