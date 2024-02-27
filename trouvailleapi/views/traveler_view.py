@@ -95,6 +95,9 @@ class TravelerView(ViewSet):
         """
 
         traveler = Traveler.objects.get(user=request.auth.user)
+        if traveler == Traveler.objects.get(pk=1):
+            return Response({"Unauthorized": "Action not permitted on demo account."}, status=status.HTTP_401_UNAUTHORIZED)
+    
         traveler.bio = request.data["bio"]
         traveler.profile_img = request.data["profileImg"]
         traveler.cover_img = request.data["coverImg"]

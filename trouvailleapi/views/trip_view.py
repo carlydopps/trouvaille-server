@@ -94,6 +94,9 @@ class TripView(ViewSet):
             Response -- JSON serialized trip instance
         """
         traveler = Traveler.objects.get(user=request.auth.user)
+        if traveler == Traveler.objects.get(pk=1):
+            return Response({"Unauthorized": "Action not permitted on demo account."}, status=status.HTTP_401_UNAUTHORIZED)
+    
         style = Style.objects.get(pk=request.data["styleId"])
         season = Season.objects.get(pk=request.data["seasonId"])
         duration = Duration.objects.get(pk=request.data["durationId"])
@@ -145,6 +148,9 @@ class TripView(ViewSet):
     def destroy(self, request, pk):
 
         traveler = Traveler.objects.get(user=request.auth.user)
+        if traveler == Traveler.objects.get(pk=1):
+            return Response({"Unauthorized": "Action not permitted on demo account."}, status=status.HTTP_401_UNAUTHORIZED)
+    
         trip = Trip.objects.get(pk=pk)
         if traveler == trip.traveler:
             trip.delete()
